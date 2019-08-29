@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.CreateProductActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <FrameLayout
+            android:id="@+id/product_photo_container"
+            style="@style/ProductPhotoContainer">
+
+            <ImageView
+                android:id="@+id/product_photo_image_view"
+                style="@style/ProductPhotoImageView"
+                android:contentDescription="@string/image_view_cd_product_photo" />
+
+        </FrameLayout>
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/details_container"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingLeft="@dimen/activity_horizontal_margin"
+                android:paddingRight="@dimen/activity_horizontal_margin"
+                android:paddingTop="32dp">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/product_name_text_input_layout"
+                    style="@style/ProductDetailsTextInputLayout">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/product_name_text_field"
+                        style="@style/ProductDetailsTextInputEditText"
+                        android:hint="@string/edit_text_hint_product_name"
+                        android:inputType="text|textCapSentences" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/product_code_text_input_layout"
+                    style="@style/ProductDetailsTextInputLayout">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/product_code_text_field"
+                        style="@style/ProductDetailsTextInputEditText"
+                        android:hint="@string/edit_text_hint_product_code"
+                        android:inputType="text|textCapCharacters" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/product_quantity_text_input_layout"
+                    style="@style/ProductDetailsTextInputLayout">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/product_quantity_text_field"
+                        style="@style/ProductDetailsTextInputEditText.ProductQuantity"
+                        android:hint="@string/edit_text_hint_product_quantity"
+                        android:inputType="number" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </LinearLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+    </LinearLayout>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/fab_margin"
+        android:onClick="showProductPhotoDialog"
+        android:src="@drawable/ic_photo_camera"
+        app:fabSize="normal"
+        app:layout_anchor="@id/product_photo_container"
+        app:layout_anchorGravity="bottom|right|end" />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
