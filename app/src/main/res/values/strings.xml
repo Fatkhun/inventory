@@ -29,6 +29,7 @@
     <string name="string_format_product_quantity">Qty: <xliff xliff:id="quantity">%d</xliff></string>
     <string name="string_format_product_code">Product code: <xliff xliff:id="code">%s</xliff></string>
     <string name="string_format_product_quantity_details">Product quantity: <xliff xliff:id="quantity">%d</xliff></string>
+    <string name="string_format_product_sale_details">Product sale: <xliff xliff:id="sale">%d</xliff></string>
 
     <string name="button_increase_qty"><xliff xliff:id="plus">+</xliff> qty</string>
     <string name="button_decrease_qty"><xliff xliff:id="minus">-</xliff> qty</string>

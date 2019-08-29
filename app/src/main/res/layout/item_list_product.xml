@@ -61,55 +61,6 @@
             </LinearLayout>
 
         </LinearLayout>
-
-
-        <LinearLayout
-            android:orientation="vertical"
-            android:layout_width="50dp"
-            android:layout_height="wrap_content">
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="30dp"
-                android:layout_gravity="center"
-                android:tint="@color/colorPrimary"
-                android:src="@drawable/ic_done"/>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textStyle="bold"
-                android:textSize="15sp"
-                android:textAlignment="center"
-                android:text="Sale"/>
-        </LinearLayout>
-
-        <LinearLayout
-            android:orientation="vertical"
-            android:layout_width="50dp"
-            android:layout_height="wrap_content">
-
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="30dp"
-                android:layout_gravity="center"
-                android:tint="@android:color/holo_red_light"
-                android:src="@drawable/ic_delete"/>
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textStyle="bold"
-                android:textAlignment="center"
-                android:textSize="15sp"
-                android:text="Delete"/>
-        </LinearLayout>
-
-        <ImageButton
-            android:id="@+id/overflow_button"
-            style="@style/Base.Widget.AppCompat.Button.Borderless"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:contentDescription="@string/image_button_cd_overflow"
-            android:src="@drawable/ic_dots" />
     </LinearLayout>
 
 </androidx.cardview.widget.CardView>

@@ -44,6 +44,11 @@
                 style="@style/ProductDetailsTextView"
                 tools:text="Product quantity: 10" />
 
+            <TextView
+                android:id="@+id/product_sale_text_view"
+                style="@style/ProductDetailsTextView"
+                tools:text="Product sale: 10" />
+
             <LinearLayout style="@style/HorizontalLinearLayout">
 
                 <Button
@@ -51,8 +56,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:onClick="modifyProductQuantity"
-                    android:text="@string/button_increase_qty"
-                    tools:ignore="ButtonStyle" />
+                    android:text="@string/button_increase_qty" />
 
                 <Button
                     android:id="@+id/decrease_qty_button"
@@ -60,8 +64,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="8dp"
                     android:onClick="modifyProductQuantity"
-                    android:text="@string/button_decrease_qty"
-                    tools:ignore="ButtonStyle" />
+                    android:text="@string/button_decrease_qty"/>
 
             </LinearLayout>
 

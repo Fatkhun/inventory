@@ -50,12 +50,13 @@ public class DetailProductActivity extends AppCompatActivity {
     private static final String INTENT_EXTRA_PRODUCT = "INTENT_EXTRA_PRODUCT";
 
     private ImageView mProductPhotoImageView;
-    private TextView mProductQuantityTextView;
+    private TextView mProductQuantityTextView, mProductSaleTextView;
     private DbHelper mDbHelper;
     private Product mProduct;
     private Spinner spZipCode;
 
     Context context;
+    int productSale = 0;
 
     ApiService apiService;
     CompositeDisposable disposable = new CompositeDisposable();
@@ -83,6 +84,7 @@ public class DetailProductActivity extends AppCompatActivity {
 
         mProductPhotoImageView = findViewById(R.id.product_photo_image_view);
         mProductQuantityTextView = findViewById(R.id.product_quantity_text_view);
+        mProductSaleTextView = findViewById(R.id.product_sale_text_view);
         spZipCode = findViewById(R.id.sp_zip_code);
 
         // Get an instance of the database helper.
@@ -188,17 +190,26 @@ public class DetailProductActivity extends AppCompatActivity {
         int productQty = mProduct.getQuantity();
         if (view.getId() == R.id.increase_qty_button) {
             // Increase the quantity of the product by 1.
-            productQty = productQty + 1;
-            updateProductQuantity(productQty);
+            if (productSale >= 0){
+                productQty = productQty - 1;
+                productSale = productSale + 1;
+                updateProductQuantity(productQty);
+                updateProductSale(productSale);
+            }
         } else {
             // Decrease the quantity of the product by 1 only if it wouldn't result a negative qty.
-            if (productQty > 0) {
-                productQty = productQty - 1;
-                updateProductQuantity(productQty);
+            if (productSale < 1){
+                Toast.makeText(getApplicationContext(), "something wrong", Toast.LENGTH_SHORT).show();
+            }else {
+                if (productQty > 0) {
+                    productQty = productQty + 1;
+                    productSale = productSale - 1;
+                    updateProductQuantity(productQty);
+                    updateProductSale(productSale);
+                }
             }
         }
     }
-
 
     public void contactSupplier(View view) {
         Intent intent = new Intent(Intent.ACTION_SENDTO);
@@ -226,6 +237,9 @@ public class DetailProductActivity extends AppCompatActivity {
         mProductQuantityTextView.setText(getString(R.string.string_format_product_quantity_details, mProduct.getQuantity()));
     }
 
+    private void updateProductSale(int productSale) {
+        mProductSaleTextView.setText(getString(R.string.string_format_product_sale_details, productSale));
+    }
 
     private void updateProductQuantity(int newQuantity) {
         mProductQuantityTextView.setText(getString(R.string.string_format_product_quantity_details, newQuantity));

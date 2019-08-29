@@ -93,32 +93,6 @@ public class ProductListAdapter extends RecyclerView.Adapter<ProductListAdapter.
         String formattedQuantity = mContext.getString(R.string.string_format_product_quantity, product.getQuantity());
         holder.mProductQuantityTextView.setText(formattedQuantity);
 
-
-        holder.mOverflowButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                PopupMenu popupMenu = new PopupMenu(mContext, view);
-                popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
-                    @Override
-                    public boolean onMenuItemClick(MenuItem item) {
-                        int position = holder.getAdapterPosition();
-                        switch (item.getItemId()) {
-                            case R.id.action_sale:
-                                mOnItemSaleListener.onItemSale(position);
-                                return true;
-                            case R.id.action_delete:
-                                mOnItemDeleteListener.onItemDelete(product, position);
-                                return true;
-                            default:
-                                return false;
-                        }
-                    }
-                });
-                popupMenu.inflate(R.menu.menu_popup);
-                popupMenu.show();
-            }
-        });
-
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -153,7 +127,6 @@ public class ProductListAdapter extends RecyclerView.Adapter<ProductListAdapter.
         private TextView mProductSkuTextView;
         private TextView mProductQuantityTextView;
         private ImageView mImageView;
-        private ImageButton mOverflowButton;
 
         ViewHolder(View itemView) {
             super(itemView);
@@ -161,7 +134,6 @@ public class ProductListAdapter extends RecyclerView.Adapter<ProductListAdapter.
             mProductSkuTextView = itemView.findViewById(R.id.product_sku_text_view);
             mProductQuantityTextView = itemView.findViewById(R.id.product_quantity_text_view);
             mImageView = itemView.findViewById(R.id.iv_product);
-            mOverflowButton = itemView.findViewById(R.id.overflow_button);
         }
     }
 }
